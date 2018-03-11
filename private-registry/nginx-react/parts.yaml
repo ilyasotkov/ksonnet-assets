@@ -9,9 +9,9 @@ contributors:
   email: ilya@sotkov.com
 repository:
   type: git
-  url: https://github.com/ilyasotkov/ksonnet-registry
+  url: https://github.com/ilyasotkov/ksonnet-assets
 bugs:
-  url: https://github.com/ilyasotkov/ksonnet-registry/issues
+  url: https://github.com/ilyasotkov/ksonnet-assets/issues
 keywords:
 - javascript
 - react
