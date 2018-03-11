@@ -1,7 +1,7 @@
 # Ksonnet Private Registry
 
 ```sh
-cd docker/ && docker build -t exekube-ksonnet:latest .
+docker build -t exekube-ksonnet:latest .
 ```
 
 ## Libraries
