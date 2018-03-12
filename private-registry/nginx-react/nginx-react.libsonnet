@@ -4,55 +4,53 @@
       local defaults = {
         image: image,
         imagePullPolicy: "Always",
-      };
+      },
 
-      {
-        apiVersion: "extensions/v1beta1",
-        kind: "Deployment",
-        metadata: {
-          namespace: namespace,
-          name: name,
-          labels: labels,
-        },
-        spec: {
-          replicas: 1,
-          strategy: {
-            rollingUpdate: {
-              maxSurge: 0,
-              maxUnavailable: 1,
-            },
+      apiVersion: "extensions/v1beta1",
+      kind: "Deployment",
+      metadata: {
+        namespace: namespace,
+        name: name,
+        labels: labels,
+      },
+      spec: {
+        replicas: 1,
+        strategy: {
+          rollingUpdate: {
+            maxSurge: 0,
+            maxUnavailable: 1,
           },
-          template: {
-            metadata: { labels: labels }
-            spec: {
-              containers: [
-                {
-                  name: name,
-                  image: image,
-                  imagePullPolicy: defaults.imagePullPolicy,
-                  resources: {},
-                  ports: [
-                    {
-                      containerPort: 80,
-                    },
-                  ],
-                  volumeMounts: [
-                    {
-                      name: "nginx-config",
-                      mountPath: "/etc/nginx/conf.d",
-                    },
-                  ],
-                }
-              ],
-              volumes: [
-                {
-                  name: "nginx-config"
-                  configMap: {
-                    name: name,
+        },
+        template: {
+          metadata: { labels: labels },
+          spec: {
+            containers: [
+              {
+                name: name,
+                image: image,
+                imagePullPolicy: defaults.imagePullPolicy,
+                resources: {},
+                ports: [
+                  {
+                    containerPort: 80,
                   },
+                ],
+                volumeMounts: [
+                  {
+                    name: "nginx-config",
+                    mountPath: "/etc/nginx/conf.d",
+                  },
+                ],
+              }
+            ],
+            volumes: [
+              {
+                name: "nginx-config",
+                configMap: {
+                  name: name,
                 },
-              ],
-            },
+              },
+            ],
           },
         },
       },
@@ -100,16 +98,14 @@
           {
             host: domain,
             http: {
-              {
-                paths: [
-                  {
-                    backend: {
-                      serviceName: name,
-                      servicePort: 80,
-                    },
+              paths: [
+                {
+                  backend: {
+                    serviceName: name,
+                    servicePort: 80,
                   },
-                ],
-              },
+                },
+              ],
             },
           },
         ],
@@ -141,19 +137,17 @@
           }
         }
       |||
-      };
+      },
 
-      {
-        apiVersion: "v1",
-        kind: "ConfigMap",
-        metadata: {
-          namespace: namespace,
-          name: name,
-          labels: { app: name }
-        },
-        data: {
-          "default.conf": defaults.nginxConfig,
-        },
+      apiVersion: "v1",
+      kind: "ConfigMap",
+      metadata: {
+        namespace: namespace,
+        name: name,
+        labels: { app: name }
+      },
+      data: {
+        "default.conf": defaults.nginxConfig,
       },
     },
   }
