@@ -30,9 +30,10 @@
                   name: name,
                   image: image,
                   imagePullPolicy: defaults.imagePullPolicy,
+                  resources: {},
                   ports: [
                     {
-                      port: 80,
+                      containerPort: 80,
                     },
                   ],
                   volumeMounts: [
