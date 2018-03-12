@@ -4,19 +4,19 @@ local container = deployment.mixin.spec.template.spec.containersType;
 
 {
   parts::{
-    deployment(namespace, name, selector={app: name}):: {
+    deployment(namespace, name, image, labels={app: name})::{
       // TODO
     },
 
-    service(namespace, name, selector={app: name}):: {
+    service(namespace, name, selector={app: name})::{
       // TODO
     },
 
-    ingress(namespace, name, domain):: {
+    ingress(namespace, name, domain)::{
       // TODO
     },
 
-    configMap(namespace, name):: {
+    configMap(namespace, name)::{
       // TODO
     },
   }

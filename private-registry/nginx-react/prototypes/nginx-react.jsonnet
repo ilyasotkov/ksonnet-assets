@@ -1,11 +1,10 @@
 // @apiVersion 0.1.0
 // @name pw.swarm.pkg.nginx-react
-// @description Deploys a simple, stateless nginx server. The nginx container is
-//   deployed using a Kubernetes deployment, and is exposed to a network with a
-//   service.
-// @shortDescription A simple, stateless nginx server for hosting React apps.
+// @description Deploys an nginx server specifically for hosting React apps.
+// @shortDescription A simple nginx server for hosting React apps.
 // @optionalParam namespace string default Namespace in which to put the application
 // @param name string Name to give to each of the components
+// @param domain string Domain name for the ingress resource.
 
 local k = import 'k.libsonnet';
 local nginxReact = import 'private-registry/nginx-react/nginx-react.libsonnet';
