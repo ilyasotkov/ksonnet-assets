@@ -1,8 +1,8 @@
-name: nginx-react
+name: nginx-app
 apiVersion: 0.0.1
 kind: ksonnet.io/parts
 description: |
-  Library for hosting a production build of a React app using Nginx.
+  A library for serving static web apps using Nginx.
 author: Ilya Sotkov <ilya@sotkov.com>
 contributors:
 - name: Ilya Sotkov
@@ -13,16 +13,14 @@ repository:
 bugs:
   url: https://github.com/ilyasotkov/ksonnet-assets/issues
 keywords:
-- javascript
-- react
 - nginx
 - static
 quickStart:
-  prototype: pw.swarm.pkg.nginx-react
-  componentName: nginx-react
+  prototype: pw.swarm.pkg.nginx-app
+  componentName: nginx-app
   flags:
-    name: nginx-react
+    name: nginx-app
     namespace: default
     password: boots
-  comment: Nginx server for hosting React apps.
+  comment: Serve a static web app using Nginx
 license: Apache 2.0

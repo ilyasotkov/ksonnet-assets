@@ -24,24 +24,24 @@ ks registry add private-registry github.com/ilyasotkov/ksonnet-assets/tree/maste
 
 This library is a port of [this Helm chart](https://github.com/exekube/charts/tree/master/charts/rails-app).
 
-### nginx-react
+### nginx-app
 
 This library is a port of [this Helm chart](https://github.com/exekube/charts/tree/master/charts/nginx-react).
 
 ```sh
-ks init react-app --api-spec=version:v1.8.7 && cd react-app
+ks init my-app --api-spec=version:v1.8.7 && cd my-app
 ```
 
 ```sh
-ks pkg install private-registry/nginx-react
+ks pkg install private-registry/nginx-app
 ```
 
 ```sh
 ks prototype use \
-    pw.swarm.pkg.nginx-react \
-    react-app-ui \
+    pw.swarm.pkg.nginx-app \
+    my-app-front \
     --namespace='default' \
-    --name='react-app' \
+    --name='my-app' \
     --image='eu.gcr.io/continuous-integration-194808/forms-app:latest' \
-    --domain='production.swarm.pw'
+    --domain='my-app.example.com'
 ```

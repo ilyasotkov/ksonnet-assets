@@ -6,7 +6,7 @@
         imagePullPolicy: "Always",
       },
 
-      apiVersion: "extensions/v1beta1",
+      apiVersion: "apps/v1beta2",
       kind: "Deployment",
       metadata: {
         namespace: namespace,

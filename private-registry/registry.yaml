@@ -1,6 +1,6 @@
 apiVersion: '0.1'
 kind: ksonnet.io/registry
 libraries:
-  nginx-react:
+  nginx-app:
     version: master
-    path: nginx-react
+    path: nginx-app

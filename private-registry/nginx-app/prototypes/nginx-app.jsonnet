@@ -1,5 +1,5 @@
 // @apiVersion 0.1.0
-// @name pw.swarm.pkg.nginx-react
+// @name pw.swarm.pkg.nginx-app
 // @description Deploys an nginx server specifically for hosting React apps.
 // @shortDescription A simple nginx server for hosting React apps.
 // @optionalParam namespace string default Namespace in which to put the application
@@ -8,7 +8,7 @@
 // @param domain string Domain name for the ingress resource.
 
 local k = import 'k.libsonnet';
-local nginxReact = import 'private-registry/nginx-react/nginx-react.libsonnet';
+local nginxApp = import 'private-registry/nginx-app/nginx-app.libsonnet';
 
 local namespace = import 'param://namespace';
 local appName = import 'param://name';
@@ -16,8 +16,8 @@ local appImage = import 'param://image';
 local appDomain = import 'param://domain';
 
 k.core.v1.list.new([
-  nginxReact.parts.deployment(namespace, appName, appImage),
-  nginxReact.parts.service(namespace, appName),
-  nginxReact.parts.ingress(namespace, appName, appDomain),
-  nginxReact.parts.configMap(namespace, appName),
+  nginxApp.parts.deployment(namespace, appName, appImage),
+  nginxApp.parts.service(namespace, appName),
+  nginxApp.parts.ingress(namespace, appName, appDomain),
+  nginxApp.parts.configMap(namespace, appName),
 ])
