@@ -1,5 +1,5 @@
 name: nginx-react
-apiVersion: 0.1.0
+apiVersion: 0.0.1
 kind: ksonnet.io/parts
 description: |
   Library for hosting a production build of a React app using Nginx.
