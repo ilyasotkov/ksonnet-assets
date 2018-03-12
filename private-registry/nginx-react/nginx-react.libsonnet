@@ -122,7 +122,6 @@
           },
         ],
       },
-
     },
 
     configMap(namespace, name):: {
