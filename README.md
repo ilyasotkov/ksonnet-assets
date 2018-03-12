@@ -1,10 +1,20 @@
 # Ksonnet Private Registry
 
+⚠️ The purpose of this repo is to learn ksonnet and Jsonnet language
+
+## Jsonnet Language
+
+<https://github.com/databricks/jsonnet-style-guide>
+
+## Docker image for using ksonnet
+
+Build `exekube-ksonnet` image:
+
 ```sh
 docker build -t exekube-ksonnet:latest .
 ```
 
-## Libraries
+## Ksonnet Libraries
 
 ### rails-app
 
