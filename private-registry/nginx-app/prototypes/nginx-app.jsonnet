@@ -1,11 +1,11 @@
 // @apiVersion 0.1.0
 // @name pw.swarm.pkg.nginx-app
-// @description Deploys an nginx server specifically for hosting React apps.
-// @shortDescription A simple nginx server for hosting React apps.
+// @description A simple nginx server for hosting static web apps
+// @shortDescription A simple nginx server for hosting static web apps
 // @optionalParam namespace string default Namespace in which to put the application
 // @param name string Name to give to each of the components
-// @param image string Application docker image
-// @param domain string Domain name for the ingress resource.
+// @param image string App container image
+// @param domain string Domain name for the ingress resource
 
 local k = import 'k.libsonnet';
 local nginxApp = import 'private-registry/nginx-app/nginx-app.libsonnet';
